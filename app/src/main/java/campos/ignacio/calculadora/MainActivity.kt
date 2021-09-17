@@ -68,43 +68,48 @@ class MainActivity : AppCompatActivity() {
         this.btnMas.setOnClickListener{
             num1=(Integer.parseInt(this.tvOp.text.toString())).toDouble()
             this.tvOp.setText("")
-            op = 0
+            op = 1
         }
 
         this.btnMenos.setOnClickListener {
             num1=(Integer.parseInt(this.tvOp.text.toString())).toDouble()
             this.tvOp.setText("")
-            op = 1
+            op = 2
         }
 
         this.btnMul.setOnClickListener {
             num1=(Integer.parseInt(this.tvOp.text.toString())).toDouble()
             this.tvOp.setText("")
-            op = 2
+            op = 3
         }
 
         this.btnDiv.setOnClickListener {
             num1=(Integer.parseInt(this.tvOp.text.toString())).toDouble()
             this.tvOp.setText("")
-            op = 3
+            op = 4
         }
 
         this.btnBorrar.setOnClickListener {
             this.tvOp.setText("")
+            this.tvResultado.setText("")
+            op = 0
         }
 
         this.btnRes.setOnClickListener {
             num2 = (Integer.parseInt(this.tvOp.text.toString())).toDouble()
 
-            if (op == 0) {
+            if (op == 1) {
                 this.tvResultado.setText((num1 + num2).toString())
-            } else if (op == 1) {
-                this.tvResultado.setText((num1 - num2).toString())
             } else if (op == 2) {
-                this.tvResultado.setText((num1 * num2).toString())
+                this.tvResultado.setText((num1 - num2).toString())
             } else if (op == 3) {
+                this.tvResultado.setText((num1 * num2).toString())
+            } else if (op == 4) {
                 this.tvResultado.setText((num1 / num2).toString())
-            }
+            } else if (op == 0) this.tvResultado.setText(this.tvOp.text)
+
+            op = 0
+            this.tvOp.setText("0")
         }
     }
 }
